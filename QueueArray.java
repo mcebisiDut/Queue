@@ -1,21 +1,21 @@
 import java.util.Arrays;
 
 public class QueueArray<T> implements IQueueArray<T> {
-    private T[] items;
+    private T[] numbers;
     private Integer size;
     private Integer front;
 
     public QueueArray() {
         size = 0;
         front = 0;
-        items = (T[]) new Object[2];
+        numbers = (T[]) new Object[2];
     }
 
-    public void add(T value) {
+    public void add(T number) {
         if (isFull()) {
-            items = Arrays.copyOf(items, 2 * size);
+            numbers = Arrays.copyOf(numbers, 2 * size);
         }
-        items[size] = value;
+        numbers[size] = number;
         size++;
     }
 
@@ -23,7 +23,7 @@ public class QueueArray<T> implements IQueueArray<T> {
         if (isEmpty()) {
             throw new EmptyQueueException("Cannot remove from an empty array");
         }
-        T value = items[front];
+        T value = numbers[front];
         front++;
 
         return value;
@@ -34,7 +34,7 @@ public class QueueArray<T> implements IQueueArray<T> {
             throw new EmptyQueueException("Cannot remove from an empty array");
         }
         
-        return items[front];
+        return numbers[front];
     }
 
     public boolean isEmpty() {
@@ -42,7 +42,7 @@ public class QueueArray<T> implements IQueueArray<T> {
     }
 
     public boolean isFull() {
-        return (size == items.length);
+        return (size == numbers.length);
     }
 
     public void clear() {
@@ -51,7 +51,7 @@ public class QueueArray<T> implements IQueueArray<T> {
 
     public void display() {
         for (int index = front; index < size; index++) {
-            System.out.println(items[index]);
+            System.out.println(numbers[index]);
         }
     }
 }
