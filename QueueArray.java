@@ -31,7 +31,7 @@ public class QueueArray<T> implements IQueueArray<T> {
 
     public T peek() throws EmptyQueueException {
         if (isEmpty()) {
-            throw new EmptyQueueException("Cannot remove from an empty array");
+            throw new EmptyQueueException("Cannot peek from an empty array");
         }
         
         return numbers[front];
