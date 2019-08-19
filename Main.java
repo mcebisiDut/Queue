@@ -30,6 +30,7 @@ class Main {
         queue.clear();
         queue.display();
         System.out.println("----------------------------------");
+        System.out.println(queue.isEmpty());
     }
 
     private static String getRemovedItem() {
