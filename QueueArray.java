@@ -13,7 +13,7 @@ public class QueueArray<T> implements IQueueArray<T> {
 
     public void add(T number) {
         if (isFull()) {
-            numbers = Arrays.copyOf(numbers, 2 * size);
+            numbers = expandSize();
         }
         numbers[size] = number;
         size++;
@@ -33,7 +33,7 @@ public class QueueArray<T> implements IQueueArray<T> {
         if (isEmpty()) {
             throw new EmptyQueueException();
         }
-        
+
         return numbers[front];
     }
 
@@ -53,5 +53,9 @@ public class QueueArray<T> implements IQueueArray<T> {
         for (int index = front; index < size; index++) {
             System.out.println(numbers[index]);
         }
+    }
+
+    private T[] expandSize() {
+        return Arrays.copyOf(numbers, 2 * size);
     }
 }
